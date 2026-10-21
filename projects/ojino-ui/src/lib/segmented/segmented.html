@@ -1,0 +1,11 @@
+@for (segment of segments(); track segment.value) {
+  <label class="oj-segmented__item">
+    <input
+      type="radio"
+      class="oj-segmented__input"
+      [name]="group"
+      [checked]="isChecked(segment)"
+      (change)="select(segment)" />
+    <span class="oj-segmented__label">{{ segment.label }}</span>
+  </label>
+}

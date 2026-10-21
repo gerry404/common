@@ -1,0 +1,77 @@
+<header class="page-head">
+  <h1>Surfaces</h1>
+  <p>
+    <code>oj-card</code> n’impose ni en-tete ni pied. Les trois quarts des cartes du produit n’en ont
+    pas, et celles qui en ont les composent elles-memes — un composant qui impose sa structure finit
+    toujours contourne.
+  </p>
+</header>
+
+<div class="stories">
+  <wk-story name="Carte simple">
+    <oj-card>
+      <h3>Mathematiques</h3>
+      <p class="muted">Douze chapitres, trois en retard.</p>
+    </oj-card>
+  </wk-story>
+
+  <wk-story name="Plate" note="Sans ombre : pour une carte posee sur un fond deja distinct.">
+    <oj-card flat>
+      <h3>Physique</h3>
+      <p class="muted">A jour.</p>
+    </oj-card>
+  </wk-story>
+
+  <wk-story name="Cliquable" note="A reserver aux cartes qui mènent reellement quelque part.">
+    <oj-card interactive>
+      <div class="row">
+        <oj-icon name="functions" size="lg" />
+        <div>
+          <h3>Suites numeriques</h3>
+          <p class="muted">Chapitre 4 — a reviser avant vendredi</p>
+        </div>
+        <oj-icon name="chevron_right" />
+      </div>
+    </oj-card>
+  </wk-story>
+
+  <wk-story name="Composee" note="Etiquettes, actions : la carte ne sait rien de tout cela, elle ne fait qu'entourer.">
+    <oj-card>
+      <div class="head">
+        <h3>Devoir surveille</h3>
+        <oj-badge tone="warning">Dans 2 jours</oj-badge>
+      </div>
+      <p class="muted">Chapitres 3 et 4, calculatrice autorisee.</p>
+      <div class="actions">
+        <button ojButton size="sm" type="button">Reviser</button>
+        <button ojButton="ghost" size="sm" type="button">Plus tard</button>
+      </div>
+    </oj-card>
+  </wk-story>
+
+  <wk-story name="Etiquettes" [row]="true">
+    <oj-badge>neutral</oj-badge>
+    <oj-badge tone="primary">primary</oj-badge>
+    <oj-badge tone="accent">accent</oj-badge>
+    <oj-badge tone="success">success</oj-badge>
+    <oj-badge tone="warning">warning</oj-badge>
+    <oj-badge tone="danger">danger</oj-badge>
+  </wk-story>
+
+  <wk-story name="En grille" note="Les cartes s'etirent a la meme hauteur sans qu'on la fixe.">
+    <div class="grid">
+      <oj-card>
+        <h3>College</h3>
+        <p class="muted">Tronc commun, BEPC.</p>
+      </oj-card>
+      <oj-card>
+        <h3>Lycee</h3>
+        <p class="muted">Filieres, Probatoire et Baccalaureat.</p>
+      </oj-card>
+      <oj-card>
+        <h3>Prepa</h3>
+        <p class="muted">Programmes denses, concours.</p>
+      </oj-card>
+    </div>
+  </wk-story>
+</div>

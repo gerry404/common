@@ -1,0 +1,29 @@
+<header class="page-head">
+  <h1>Segments</h1>
+  <p>
+    Quelques options exclusives, toutes visibles. Construit sur de vrais
+    <code>&lt;input type="radio"&gt;</code> caches derriere leurs etiquettes : les fleches du
+    clavier, le Tab qui saute le groupe entier et l’annonce « 2 sur 4 » viennent du navigateur. Un
+    groupe de <code>&lt;button role="radio"&gt;</code> demanderait de reimplementer les quatre, et se
+    tromperait sur au moins un.
+  </p>
+</header>
+
+<div class="stories">
+  <wk-story name="Quatre options" note="Essaie au clavier : Tab entre dans le groupe, les fleches changent le choix.">
+    <oj-segmented [segments]="severities" [(value)]="severity" label="Niveau de difficulte" />
+    <p class="echo">Valeur : <code>{{ severity() }}</code></p>
+  </wk-story>
+
+  <wk-story
+    name="Quand ca deborde"
+    note="Le groupe defile horizontalement plutot que de casser la mise en page. Reduis la fenetre pour le voir.">
+    <oj-segmented [segments]="cycles" [(value)]="cycle" label="Cycle scolaire" />
+    <p class="echo">Valeur : <code>{{ cycle() }}</code></p>
+  </wk-story>
+
+  <wk-story name="Deux groupes sur une page" note="Chaque groupe a son propre name : sans cela, le second desactiverait le choix du premier.">
+    <oj-segmented [segments]="severities" [(value)]="severity" label="Premier groupe" />
+    <oj-segmented [segments]="severities" label="Second groupe, independant" />
+  </wk-story>
+</div>

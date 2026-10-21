@@ -1,0 +1,57 @@
+<header class="page-head">
+  <h1>Retours</h1>
+  <p>
+    Ce que l’application dit quand elle travaille, et quand quelque chose s’est passe.
+  </p>
+</header>
+
+<div class="stories">
+  <wk-story
+    name="Progression chiffree"
+    note="La valeur est bornee dans le composant : un 140 passe a 100 plutot que de deborder de la barre.">
+    <oj-progress [value]="progress()" />
+    <div class="controls">
+      <button ojButton="outlined" size="sm" type="button" (click)="advance(-25)">-25</button>
+      <button ojButton="outlined" size="sm" type="button" (click)="advance(25)">+25</button>
+      <code>value = {{ progress() }}</code>
+    </div>
+  </wk-story>
+
+  <wk-story name="Progression indeterminee" note="Sans value : on ne sait pas combien de temps, et on le dit.">
+    <oj-progress />
+  </wk-story>
+
+  <wk-story name="Attente courte" note="Dessine en CSS : une bordure qui tourne, rien a telecharger." [row]="true">
+    <oj-spinner />
+    <oj-spinner size="sm" />
+    <button ojButton type="button" loading>
+      <oj-spinner size="sm" />
+      Enregistrement…
+    </button>
+  </wk-story>
+
+  <wk-story
+    name="Messages ephemeres"
+    note="Le service detient la liste, un seul hote l'affiche. Au-dela de trois, les plus anciens sont jetes — clique vite pour le voir."
+    [row]="true">
+    <button ojButton="outlined" type="button" (click)="notify('info')">
+      <oj-icon name="info" />
+      Information
+    </button>
+    <button ojButton="outlined" type="button" (click)="notify('success')">
+      <oj-icon name="check_circle" />
+      Succes
+    </button>
+    <button ojButton="outlined" type="button" (click)="notify('error')">
+      <oj-icon name="error" />
+      Erreur
+    </button>
+  </wk-story>
+
+  <wk-story name="Icones" note="Toujours aria-hidden : une icone double un texte, elle ne le remplace jamais." [row]="true">
+    <oj-icon name="school" size="sm" />
+    <oj-icon name="school" />
+    <oj-icon name="school" size="lg" />
+    <oj-icon name="school" size="xl" />
+  </wk-story>
+</div>

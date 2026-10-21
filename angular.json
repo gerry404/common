@@ -55,7 +55,15 @@
                 "input": "projects/workshop/public"
               }
             ],
-            "styles": ["projects/workshop/src/styles.scss"]
+            "styles": [
+              "projects/workshop/src/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "dist",
+                "node_modules"
+              ]
+            }
           },
           "configurations": {
             "production": {

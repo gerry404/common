@@ -1,0 +1,29 @@
+.oj-field {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.oj-field__label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text);
+}
+
+.oj-field__control {
+  display: grid;
+  position: relative;
+}
+
+.oj-field__hint,
+.oj-field__error {
+  font-size: var(--text-xs);
+  margin: 0;
+}
+
+.oj-field__hint {
+  color: var(--color-text-muted);
+}
+
+.oj-field__error {
+  color: var(--color-danger);
+}

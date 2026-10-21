@@ -1,0 +1,29 @@
+.oj-progress {
+  display: block;
+  overflow: hidden;
+  block-size: 0.375rem;
+  background: var(--color-surface-sunken);
+  border-radius: var(--radius-full);
+}
+
+.oj-progress__bar {
+  display: block;
+  block-size: 100%;
+  background: var(--color-primary);
+  border-radius: inherit;
+  transition: inline-size var(--duration-base) var(--ease-out);
+}
+
+.oj-progress--indeterminate .oj-progress__bar {
+  inline-size: 40%;
+  animation: oj-progress-slide 1.4s var(--ease-out) infinite;
+}
+
+@keyframes oj-progress-slide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(250%);
+  }
+}

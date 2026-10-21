@@ -1,0 +1,15 @@
+@for (toast of toasts(); track toast.id) {
+  <div class="oj-toast" [class]="'oj-toast--' + toast.tone">
+    <oj-icon [name]="iconFor(toast.tone)" />
+    <p class="oj-toast__message">{{ toast.message }}</p>
+    <button
+      ojButton="ghost"
+      size="sm"
+      icon
+      type="button"
+      aria-label="Fermer le message"
+      (click)="dismiss(toast.id)">
+      <oj-icon name="close" size="sm" />
+    </button>
+  </div>
+}

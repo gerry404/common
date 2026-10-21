@@ -1,0 +1,103 @@
+// Les champs de saisie.
+//
+// Comme les boutons, ce sont des directives sur des elements natifs : `input`,
+// `textarea`, `select`. On gagne gratuitement le clavier, l'autofill du
+// navigateur, les claviers adaptes sur mobile, les selecteurs de date et
+// d'heure du systeme, et la validation native en secours.
+//
+// Reimplementer une liste deroulante accessible coute des centaines de lignes
+// et se trompe presque toujours sur le clavier. Un `<select>` stylise est
+// moins spectaculaire et nettement plus correct.
+
+.oj-control {
+  display: block;
+  width: 100%;
+  min-height: var(--control-height);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-size: var(--text-base);
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.oj-control::placeholder {
+  color: var(--color-text-subtle);
+}
+
+.oj-control:hover:not(:disabled):not(:focus) {
+  border-color: var(--color-text-subtle);
+}
+
+.oj-control:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+
+.oj-control:disabled {
+  background: var(--color-surface-sunken);
+  color: var(--color-text-subtle);
+  cursor: not-allowed;
+}
+
+// L'etat invalide est pilote par `aria-invalid`, pas par `:invalid`. La
+// pseudo-classe native s'allume des le premier caractere, avant que
+// l'utilisateur ait fini d'ecrire — c'est la raison pour laquelle tant de
+// formulaires crient au rouge pendant la saisie.
+.oj-control[aria-invalid='true'] {
+  border-color: var(--color-danger);
+}
+
+.oj-control[aria-invalid='true']:focus {
+  box-shadow: 0 0 0 3px var(--color-danger-soft);
+}
+
+textarea.oj-control {
+  min-height: calc(var(--control-height) * 2);
+  resize: vertical;
+  line-height: var(--leading-normal);
+}
+
+// La fleche est dessinee en SVG inline : un pseudo-element ne peut pas se
+// poser sur un `<select>`, et une image externe serait une requete de plus.
+select.oj-control {
+  appearance: none;
+  padding-inline-end: var(--space-10);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%236f6961' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-3) center;
+  background-size: 1.25rem;
+  cursor: pointer;
+}
+
+// La fleche claire du theme sombre. Le chevron etant une image et non une
+// couleur, il ne peut pas suivre un jeton : il faut le redeclarer, dans les
+// deux portes d'entree du theme sombre.
+@mixin dark-select-arrow {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23b4ada0' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) select.oj-control {
+    @include dark-select-arrow;
+  }
+}
+
+:root[data-theme='dark'] select.oj-control {
+  @include dark-select-arrow;
+}
+
+// Les selecteurs natifs de date et d'heure : on garde le widget du systeme,
+// on ne fait que teinter son icone.
+.oj-control::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.55;
+}
+
+.oj-control::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}

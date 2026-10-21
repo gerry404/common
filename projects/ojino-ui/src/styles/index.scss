@@ -1,0 +1,11 @@
+// Le point d'entree des styles de la bibliotheque.
+//
+// Une application consommatrice n'ecrit qu'une ligne dans son styles.scss :
+//
+//   @use 'ojino-ui/styles' as *;
+//
+// Les jetons d'abord : tout le reste les cite.
+@use 'tokens';
+@use 'base';
+@use 'button';
+@use 'control';

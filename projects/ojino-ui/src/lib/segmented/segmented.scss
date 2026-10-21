@@ -1,0 +1,63 @@
+.oj-segmented {
+  display: inline-flex;
+  padding: 0.1875rem;
+  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  max-inline-size: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.oj-segmented::-webkit-scrollbar {
+  display: none;
+}
+
+.oj-segmented__item {
+  flex: 1 0 auto;
+  cursor: pointer;
+}
+
+/*
+ * Le radio reste dans la page et reste focusable : le cacher avec
+ * `display: none` le retirerait de l'ordre de tabulation et du groupe, ce qui
+ * couterait exactement l'accessibilite qu'on venait chercher.
+ */
+.oj-segmented__input {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  opacity: 0;
+  margin: 0;
+  pointer-events: none;
+}
+
+.oj-segmented__label {
+  display: block;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.oj-segmented__item:hover .oj-segmented__label {
+  color: var(--color-text);
+}
+
+.oj-segmented__input:checked + .oj-segmented__label {
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-1);
+}
+
+.oj-segmented__input:focus-visible + .oj-segmented__label {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+}

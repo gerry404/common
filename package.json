@@ -1,12 +1,13 @@
 {
-  "name": "common",
+  "name": "ojino-common",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "start": "ng serve workshop --port 4300 --open",
+    "build": "ng build ojino-ui",
+    "watch:ui": "ng build ojino-ui --watch --configuration development",
+    "build:workshop": "ng build workshop",
+    "test": "ng test ojino-ui --watch=false",
+    "test:workshop": "ng test workshop --watch=false"
   },
   "private": true,
   "packageManager": "npm@11.6.4",

@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+// L'atelier ne definit aucun style a lui : il consomme exactement ce que
+// consomment les applications. C'est la seule facon de garantir que ce qu'on
+// voit ici est ce qu'on verra la-bas.
+@use 'ojino-ui/styles' as *;
+
+// Les deux seuls styles propres a l'atelier : l'en-tete d'une page et la pile
+// de ses cas. Tout le reste doit venir de la bibliotheque, sinon l'atelier
+// mentirait sur ce que voient les applications.
+.page-head {
+  display: grid;
+  gap: var(--space-3);
+  margin-block-end: var(--space-8);
+  max-inline-size: 70ch;
+}
+
+.page-head h1 {
+  font-size: var(--text-3xl);
+}
+
+.page-head p {
+  color: var(--color-text-muted);
+}
+
+.stories {
+  display: grid;
+  gap: var(--space-8);
+  max-inline-size: 60rem;
+}

@@ -1,0 +1,13 @@
+@if (label()) {
+  <label class="oj-field__label" [attr.for]="controlId()">{{ label() }}</label>
+}
+
+<div class="oj-field__control">
+  <ng-content />
+</div>
+
+@if (error(); as message) {
+  <p class="oj-field__error" [id]="messageId()" role="alert">{{ message }}</p>
+} @else if (hint()) {
+  <p class="oj-field__hint" [id]="messageId()">{{ hint() }}</p>
+}

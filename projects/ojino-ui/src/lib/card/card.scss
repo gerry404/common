@@ -1,0 +1,23 @@
+.oj-card {
+  display: block;
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-1);
+}
+
+.oj-card--flat {
+  box-shadow: none;
+}
+
+.oj-card--interactive {
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+}
+
+.oj-card--interactive:hover {
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-2);
+}

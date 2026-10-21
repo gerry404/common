@@ -1,0 +1,130 @@
+// Les boutons.
+//
+// Le style vit dans la feuille de la bibliotheque et non dans un composant,
+// parce que `ojButton` est une directive : elle se pose sur un <button> ou un
+// <a> natif. Pas d'element enveloppant, donc pas de bagarre avec la mise en
+// page, et `type`, `disabled`, `routerLink` gardent leur comportement natif.
+
+.oj-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--control-height);
+  padding-inline: var(--space-5);
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  background: none;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.oj-button:disabled,
+.oj-button[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+// Un bouton occupe peut etre reclique sans que rien ne se passe : on le laisse
+// actif pour que le focus ne saute pas, mais le pointeur dit la verite.
+.oj-button[aria-busy='true'] {
+  cursor: progress;
+}
+
+.oj-button--sm {
+  min-height: var(--control-height-sm);
+  padding-inline: var(--space-4);
+  font-size: var(--text-xs);
+}
+
+.oj-button--block {
+  width: 100%;
+}
+
+// --- Plein : une seule action principale par ecran -------------------------
+
+.oj-button--filled {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.oj-button--filled:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.oj-button--filled:active:not(:disabled) {
+  background: var(--color-primary-active);
+}
+
+// --- Contour --------------------------------------------------------------
+
+.oj-button--outlined {
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+}
+
+.oj-button--outlined:hover:not(:disabled) {
+  background: var(--color-surface-hover);
+  border-color: var(--color-text-subtle);
+}
+
+// --- Discret : actions secondaires, « Passer », « Annuler » ----------------
+
+.oj-button--ghost {
+  color: var(--color-text-muted);
+}
+
+.oj-button--ghost:hover:not(:disabled) {
+  background: var(--color-surface-hover);
+  color: var(--color-text);
+}
+
+// --- Doux : une action mise en avant sans peser autant qu'un plein ---------
+
+.oj-button--soft {
+  background: var(--color-primary-soft);
+  color: var(--color-primary-soft-text);
+}
+
+.oj-button--soft:hover:not(:disabled) {
+  background: var(--color-primary-soft);
+  filter: brightness(0.96);
+}
+
+// --- Destructif -----------------------------------------------------------
+
+.oj-button--danger {
+  background: var(--color-danger);
+  color: var(--color-on-danger);
+}
+
+.oj-button--danger:hover:not(:disabled) {
+  background: var(--color-danger-hover);
+}
+
+// --- Icone seule ----------------------------------------------------------
+
+.oj-button--icon {
+  min-height: var(--control-height);
+  width: var(--control-height);
+  padding-inline: 0;
+  color: var(--color-text-muted);
+}
+
+.oj-button--icon:hover:not(:disabled) {
+  background: var(--color-surface-hover);
+  color: var(--color-text);
+}
+
+.oj-button--icon.oj-button--sm {
+  min-height: var(--control-height-sm);
+  width: var(--control-height-sm);
+}

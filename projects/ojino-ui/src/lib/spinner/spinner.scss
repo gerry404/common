@@ -1,0 +1,21 @@
+.oj-spinner {
+  display: inline-block;
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  border: 2px solid var(--color-border-strong);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: oj-spin 0.7s linear infinite;
+}
+
+.oj-spinner--sm {
+  inline-size: 0.875rem;
+  block-size: 0.875rem;
+  border-width: 1.5px;
+}
+
+@keyframes oj-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
