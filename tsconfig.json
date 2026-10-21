@@ -11,6 +11,9 @@
     "isolatedModules": true,
     "experimentalDecorators": true,
     "importHelpers": true,
+    "paths": {
+      "ojino-ui": ["./dist/ojino-ui"]
+    },
     "target": "ES2022",
     "module": "preserve"
   },
@@ -19,5 +22,19 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true
   },
-  "files": []
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/ojino-ui/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ojino-ui/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/workshop/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/workshop/tsconfig.spec.json"
+    }
+  ]
 }
