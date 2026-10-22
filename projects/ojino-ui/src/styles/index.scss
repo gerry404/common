@@ -9,3 +9,12 @@
 @use 'base';
 @use 'button';
 @use 'control';
+
+// Une seule classe au service du catalogue : aligner quelques elements sur une
+// ligne dans une story. Elle n'a pas d'autre usage dans les applications.
+.sb-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}

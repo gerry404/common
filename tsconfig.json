@@ -1,5 +1,3 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -12,7 +10,9 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "paths": {
-      "ojino-ui": ["./dist/ojino-ui"]
+      "ojino-ui": [
+        "./dist/ojino-ui"
+      ]
     },
     "target": "ES2022",
     "module": "preserve"
@@ -29,12 +29,6 @@
     },
     {
       "path": "./projects/ojino-ui/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/workshop/tsconfig.app.json"
-    },
-    {
-      "path": "./projects/workshop/tsconfig.spec.json"
     }
   ]
 }

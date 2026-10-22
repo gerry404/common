@@ -29,80 +29,22 @@
           "options": {
             "tsConfig": "projects/ojino-ui/tsconfig.spec.json"
           }
-        }
-      }
-    },
-    "workshop": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
-      "root": "projects/workshop",
-      "sourceRoot": "projects/workshop/src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular/build:application",
+        },
+        "storybook": {
+          "builder": "@storybook/angular-vite:start-storybook",
           "options": {
-            "browser": "projects/workshop/src/main.ts",
-            "tsConfig": "projects/workshop/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "projects/workshop/public"
-              }
-            ],
-            "styles": [
-              "projects/workshop/src/styles.scss"
-            ],
-            "stylePreprocessorOptions": {
-              "includePaths": [
-                "dist",
-                "node_modules"
-              ]
-            }
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true
-            }
-          },
-          "defaultConfiguration": "production"
+            "configDir": "projects/ojino-ui/.storybook",
+            "browserTarget": "ojino-ui:build",
+            "port": 6006
+          }
         },
-        "serve": {
-          "builder": "@angular/build:dev-server",
-          "configurations": {
-            "production": {
-              "buildTarget": "workshop:build:production"
-            },
-            "development": {
-              "buildTarget": "workshop:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "test": {
-          "builder": "@angular/build:unit-test"
+        "build-storybook": {
+          "builder": "@storybook/angular-vite:build-storybook",
+          "options": {
+            "configDir": "projects/ojino-ui/.storybook",
+            "browserTarget": "ojino-ui:build",
+            "outputDir": "storybook-static"
+          }
         }
       }
     }

@@ -2,12 +2,11 @@
   "name": "ojino-common",
   "version": "0.0.0",
   "scripts": {
-    "start": "ng serve workshop --port 4300 --open",
+    "storybook": "ng run ojino-ui:storybook",
+    "build-storybook": "ng run ojino-ui:build-storybook",
     "build": "ng build ojino-ui",
-    "watch:ui": "ng build ojino-ui --watch --configuration development",
-    "build:workshop": "ng build workshop",
-    "test": "ng test ojino-ui --watch=false",
-    "test:workshop": "ng test workshop --watch=false"
+    "watch": "ng build ojino-ui --watch --configuration development",
+    "test": "ng test ojino-ui --watch=false"
   },
   "private": true,
   "packageManager": "npm@11.6.4",
@@ -22,13 +21,31 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@analogjs/vite-plugin-angular": "^2.7.3",
+    "@angular-devkit/architect": "^0.2201.0",
+    "@angular-devkit/build-angular": "^22.1.0",
+    "@angular-devkit/core": "^22.1.0",
+    "@angular/animations": "^22.1.0",
     "@angular/build": "^22.2.3",
     "@angular/cli": "^22.1.5",
     "@angular/compiler-cli": "^22.1.0",
+    "@chromatic-com/storybook": "^5.1.0",
+    "@storybook/addon-a11y": "^10.6.3",
+    "@storybook/addon-docs": "^10.6.3",
+    "@storybook/addon-onboarding": "^10.6.3",
+    "@storybook/addon-vitest": "^10.6.3",
+    "@storybook/angular-vite": "^10.6.3",
+    "@types/node": "^24.0.0",
+    "@vitest/browser-playwright": "5.0.5",
+    "@vitest/coverage-v8": "5.0.5",
     "jsdom": "^30.0.0",
     "ng-packagr": "^22.2.0",
+    "playwright": "^1.56.0",
     "prettier": "^3.8.1",
+    "sass": "^1.106.1",
+    "storybook": "^10.6.3",
     "typescript": "~6.0.2",
+    "vite": "^8.3.5",
     "vitest": "^5.0.0"
   }
 }
